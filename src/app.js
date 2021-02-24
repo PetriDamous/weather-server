@@ -1,7 +1,13 @@
+// Node modules
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 
+// Our modules
+const getLocation  = require('./utilis/location');
+const getWeather = require('./utilis/weather');
+
+// Creates instance of express
 const app = express();
 
 // Define paths for Express config
@@ -41,12 +47,34 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/weather', (req, res) => {
-    res.send(
-        {
-            forecast: 'cloudy',
-            location: 'Korea'
+    const {address} = req.query;
+
+    if (!address) {
+        return res.send({
+            error: 'Please enter an address'
+        });
+    }
+    
+    getLocation(address, (error, addressData=undefined) => {
+
+        // console.log(locationData)
+        if (error) {
+            return res.send({error});
         }
-    );
+    
+        getWeather(addressData, (error, weatherData=undefined) => {
+            if (error) {
+                return res.send({error});
+            }
+    
+            res.send({
+            address,
+            ...weatherData
+            });
+        }); 
+    });
+
+
 });
 
 app.get('/about/*', (req, res) => {
