@@ -29,6 +29,8 @@ const getWeather = ({location, long, lat}, callback) => {
             return callback(error.info);
         } else {
             const { current: currentWeather } = data;
+
+            console.log(currentWeather)
     
             const { weather_descriptions: descriptions, temperature: temp,  feelslike,  precip } = currentWeather;
         

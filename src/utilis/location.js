@@ -28,6 +28,8 @@ const getLocation = (location, callback) => {
             const [ dataSet ] = features;
         
             const { center: cords, place_name: location } = dataSet;
+
+            console.log(location)
         
             const [ long, lat ] = cords;
 

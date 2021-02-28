@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/app.js" defer></script>
-    <title>{{ title }}</title>
-</head>
+{{>head}}
 <body>
-    {{>header}}
+    {{>nav}}
+    <div class="container flow-content">
+        {{!-- <section class="weather-info weather-container flow-content"> 
+            <div class="weather-info__primary">
+                <div class="weather-info__time">Sat, February 27 11:15 AM</div>
+                <div class="weather-info__temp">70&#8457;</div>
+                <div class="weather-info__description">Cloudy</div>
+            </div> <!-- primary end -->
+            <div class="weather-info__secondary flow-content">
+                <div class="weather-info__feels">Feels like: 75&#8457;</div>
+                <div class="weather-info__precipitation">Precipitation: 15%</div>
+                <div class="weather-info__humidity">Humidity: 68%</div>
+                <div class="weather-info__wind">Wind: 19mph</div>
+            </div> <!-- secondary end -->          
+            <div class="weather-info__tertiary">
+                <div class="weather-info__location">Pussyfoot Saloon, 용산구 대사관로31길 7-6, Yongsan-gu, Seoul 04401, South Korea</div>
+            </div>
+        </section> --}}
 
-    <form id="weather-form">
-        <input type="text">
-        <button type="submit">Submit</button>
-    </form>
+        <section class="place-holder">
+            <p>Please enter address below.</p>
+        </section>
 
-    {{>footer}}
-    
+        <section class="weather-search">
+            <form id="weather-form" class="split">
+                <div id="search__input" class="search__input">
+                    <div class="search__icon">
+                        <img src="img/loupe.svg" alt="search icon">
+                    </div>
+                    <input id="search__box" class="search__box" type="text" name="q">
+                    <div id="search__clear" class="search__clear">
+                        <img src="img/close.svg" alt="close icon">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-submit">Submit</button>
+            </form>
+        </section>
+
+
+    </div>
+
+    {{>footer}}    
 </body>
 </html>
