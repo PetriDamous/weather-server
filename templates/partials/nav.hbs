@@ -1,5 +1,18 @@
 <nav class="nav">
-    <a href="/">Weather</a>    
-    <a href="/about">About</a>
-    <a href="/help">Help</a>
+    {{#if isHome}}
+        <a href="/about">About</a>
+        <a href="/help">Help</a>
+    {{else if isAbout}}    
+        <a href="/">Weather</a>
+        <a href="/help">Help</a>
+    {{else if isHelp}}
+        <a href="/">Weather</a>
+        <a href="/about">About</a>
+    {{else}}
+        <a href="/">Weather</a>
+        <a href="/about">About</a>
+        <a href="/help">Help</a>
+    {{/if}}
+
+    
 </nav>

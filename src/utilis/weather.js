@@ -32,19 +32,21 @@ const getWeather = ({location, long, lat}, callback) => {
 
             console.log(currentWeather)
     
-            const { weather_descriptions: descriptions, temperature: temp,  feelslike,  precip } = currentWeather;
+            const { weather_descriptions: descriptions, temperature: temp,  feelslike,  precip, humidity, wind_speed } = currentWeather;
         
             let [des_1, des_2] = descriptions;
         
-            let percipPercent = convertPercent(precip);
+            // let percipPercent = convertPercent(precip);
 
             const weather = {
                 location,
                 temp,
                 feelslike,
-                percipPercent,
+                precip,
                 des_1,
-                des_2
+                des_2,
+                humidity,
+                wind_speed
             };
 
             return callback(undefined, weather);        

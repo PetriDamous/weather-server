@@ -4,26 +4,26 @@
 <body>
     {{>nav}}
     <div class="container flow-content">
-        {{!-- <section class="weather-info weather-container flow-content"> 
+        <section id="weather-info" class="weather-info weather-container flow-content"> 
             <div class="weather-info__primary">
-                <div class="weather-info__time">Sat, February 27 11:15 AM</div>
-                <div class="weather-info__temp">70&#8457;</div>
-                <div class="weather-info__description">Cloudy</div>
+                <div id="time" class="weather-info__time">Sat, February 27 11:15 AM</div>
+                <div class="weather-info__temp"><span id="temp">103</span>&#8457;</div>
+                <div id="description" class="weather-info__description">Cloudy</div>
             </div> <!-- primary end -->
             <div class="weather-info__secondary flow-content">
-                <div class="weather-info__feels">Feels like: 75&#8457;</div>
-                <div class="weather-info__precipitation">Precipitation: 15%</div>
-                <div class="weather-info__humidity">Humidity: 68%</div>
-                <div class="weather-info__wind">Wind: 19mph</div>
+                <div class="weather-info__feels">Feels like: <span id="feels">600</span>&#8457;</div>
+                <div class="weather-info__precipitation">Precipitation: <span id="precipitation">15</span>%</div>
+                <div class="weather-info__humidity">Humidity: <span id="humidity">68</span>%</div>
+                <div class="weather-info__wind">Wind: <span id="wind">19</span>mph</div>
             </div> <!-- secondary end -->          
             <div class="weather-info__tertiary">
-                <div class="weather-info__location">Pussyfoot Saloon, 용산구 대사관로31길 7-6, Yongsan-gu, Seoul 04401, South Korea</div>
+                <div id="location" class="weather-info__location">Pussyfoot Saloon, 용산구 대사관로31길 7-6, Yongsan-gu, Seoul 04401, South Korea</div>
             </div>
-        </section> --}}
-
-        <section class="place-holder">
-            <p>Please enter address below.</p>
         </section>
+
+        {{!-- <section id="place-holder" class="place-holder">
+            <p>Please enter an address below to get the weather.</p>
+        </section> --}}
 
         <section class="weather-search">
             <form id="weather-form" class="split">
@@ -38,9 +38,7 @@
                 </div>
                 <button type="submit" class="btn btn-submit">Submit</button>
             </form>
-        </section>
-
-
+        </section>  
     </div>
 
     {{>footer}}    

@@ -36,7 +36,7 @@ app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About',
         name: 'Dimitri Williams',
-        "isHome": false
+        "isAbout": true
     });
 });
 
@@ -45,7 +45,7 @@ app.get('/help', (req, res) => {
         title: 'Help',
         name: 'Dimitri Williams',
         helpTxt: 'Some helpful text.',
-        "isHome": false
+        "isHelp": true
     });
 });
 
@@ -84,7 +84,6 @@ app.get('/about/*', (req, res) => {
     res.render('404', {
         title: 404,
         error: 'Page Not Found',
-        "isHome": false
     });
 });
 
@@ -92,7 +91,6 @@ app.get('/weather/*', (req, res) => {
     res.render('404', {
         title: 404,
         error: 'Resource does not exist',
-        "isHome": false
     });
 });
 
@@ -100,7 +98,6 @@ app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
         error: 'Article Not Found',
-        "isHome": false
     });
 });
 
@@ -108,7 +105,6 @@ app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
         error: 'Page Not Found',
-        "isHome": false
     });
 });
 
