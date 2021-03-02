@@ -10,6 +10,8 @@ const getWeather = require('./utilis/weather');
 // Creates instance of express
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 // Define paths for Express config
 const publicPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
@@ -108,6 +110,6 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server is running');
 });

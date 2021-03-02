@@ -221,7 +221,7 @@ a {
 .weather-info {
     --flow-space: 1.5rem;
     padding: 10vh 0 5vh;
-    /* display: none; */
+    display: none;
 }
 
 .weather-info > *:not(:last-child) {

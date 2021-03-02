@@ -55,7 +55,7 @@ weahterForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const searchValue = e.target[0].value;
 
-    fetch(`http://localhost:3000/weather?address=${searchValue}`).then((response) => {
+    fetch(`/weather?address=${searchValue}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 return console.log(data.error);    
