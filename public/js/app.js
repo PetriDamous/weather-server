@@ -18,17 +18,22 @@ const locationData = document.getElementById("location");
 const searchLogo = document.getElementById("search__logo");
 const boxShadowSearch = "0 1px 6px rgba(32,33,36,.28)";
 
+const hideShowSearchClear = (searchValue) => searchClear.style.display = searchValue !== "" ? "block" : "none";
+
+
 searchBox.addEventListener("focusin", e => {
     searchInput.style.boxShadow = boxShadowSearch;
+    hideShowSearchClear(e.target.value);
 });
 
 searchBox.addEventListener("focusout", e => {
     searchInput.style.boxShadow = "none";
+    hideShowSearchClear(e.target.value);
 });
 
-searchBox.addEventListener("input", e => {
-    searchClear.style.display = e.target.value !== "" ? "block" : "none";
-});
+searchBox.addEventListener("input", e => hideShowSearchClear(e.target.value));
+
+searchBox.addEventListener("click", e => hideShowSearchClear(e.target.value));
 
 searchClear.addEventListener("click", e => {
     searchBox.value = "";
@@ -58,7 +63,11 @@ weahterForm.addEventListener("submit", (e) => {
     fetch(`/weather?address=${searchValue}`).then((response) => {
         response.json().then((data) => {
             if (data.error) {
-                return console.log(data.error);    
+                const { error } = data;
+                placeHolder.children[0].innerText = `${error}`;
+                placeHolder.style.display = "flex";
+                weatherInfo.style.display = "none";
+                return;     
             } 
 
             renderData(data);
