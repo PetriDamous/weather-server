@@ -1,6 +1,6 @@
 const { convertPercent } = require('./utility_functions');
 const request = require('postman-request');
-const { weatherStack } = require('../secret');
+const { weatherStack } = require('../../secret');
 
 // Weather API
 const getWeather = ({location, long, lat}, callback) => {

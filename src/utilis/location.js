@@ -1,5 +1,5 @@
 const request = require('postman-request');
-const {mapBox} = require('../secret');
+const {mapBox} = require('../../secret');
 
 // Geo Location API
 const getLocation = (location, callback) => {
