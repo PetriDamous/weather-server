@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 
 import "./App.css";
 
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 function App() {
   const [data, setData] = useState(null);
 
@@ -18,8 +21,8 @@ function App() {
   });
 
   return (
-    <div>
-      <p>{data ? data : "Loading...."}</p>
+    <div class="container flow-content">
+      <Header />
     </div>
   );
 }
