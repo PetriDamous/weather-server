@@ -1,30 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import "./App.css";
 
 import Header from "./components/Header";
+import WeatherSearch from "./components/WeatherSearch";
 import Footer from "./components/Footer";
 
-function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    async function something() {
-      const res = await fetch("/api");
-
-      const data = await res.json();
-
-      setData(data.message);
-    }
-
-    something();
-  });
-
+export default function App() {
   return (
-    <div class="container flow-content">
+    <div className="container flow-content">
       <Header />
+      <WeatherSearch />
+      <Footer />
     </div>
   );
 }
-
-export default App;

@@ -87,6 +87,7 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
+  font-size: var(--fs-200);
 }
 
 input,
@@ -97,7 +98,7 @@ select {
   padding: 0;
 }
 
-body {
+#root {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
@@ -110,7 +111,8 @@ body {
     var(--clr-primary-400),
     var(--clr-primary-300)
   );
-  color: var(--clr-neutral-500);
+  color: var(--clr-neutral-600);
+  padding: 2rem 0;
 }
 
 /* utilites */
@@ -224,7 +226,7 @@ a {
 .weather-info {
   --flow-space: 1.5rem;
   padding: 10vh 0 5vh;
-  display: none;
+  display: block;
 }
 
 .weather-info > *:not(:last-child) {
@@ -283,7 +285,7 @@ a {
 }
 
 .search__clear {
-  display: none;
+  display: block;
   cursor: pointer;
 }
 
