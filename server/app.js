@@ -31,10 +31,6 @@ app.use(weatherRouter);
 app.use(aboutRouter);
 app.use(helpRouter);
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
-
 app.get("*", (req, res) => {
   res.render("404", {
     title: "404",
