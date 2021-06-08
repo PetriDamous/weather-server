@@ -1,0 +1,69 @@
+:root {
+  --ff-primary: 'Roboto', sans-serif;
+
+  /* small screen font-sizes */
+  --fs-200: 0.75rem;
+  --fs-250: 0.875rem; // for this project 14px
+  --fs-300: 1rem; // for this project 16px
+  --fs-350: 1.125rem; // for this project 18px
+  --fs-400: 1.25rem;
+  --fs-500: 1.375rem;
+  --fs-600: 1.75rem;
+  --fs-700: 3rem; // for this project 48px
+  --fs-900: 2.125rem;
+
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400; // for this project
+  --fw-700: 700; // for this project
+
+  --clr-neutral-100: #fff;
+  --clr-neutral-200: #eef1f6;
+  --clr-neutral-300: #a9afbc;
+  --clr-neutral-400: #737b8c;
+  --clr-neutral-500: #434956;
+  --clr-neutral-700: #202124;
+  --clr-neutral-900: #020203;
+
+  --clr-primary-200: #F0E68C;
+  --clr-primary-300: #ffff00;
+  --clr-primary-400: #ffee00;
+
+  --modal-bg: rgb(0, 0, 0, .5);
+  --modal-form-bg: #36454F;
+
+  --txt-danger: #dc3545;
+  --txt-success: #198754;
+
+  --bg-danger: #f8d7da;
+  --bg-success: #d1e7dd;
+
+  --brd-success: #badbcc;
+  --brd-danger: #f5c2c7;
+
+  --card-default: transparent;
+  --card-red: #5c2b29;
+  --card-orange: #614a19;
+  --card-yellow: #635d19;
+  --card-green: #345920;
+  --card-teal: #16504b;
+  --card-blue: #2d555e;
+  --card-purple: #42275e;
+  --card-pink: #5b2245;
+  --card-brown: #442f19;
+
+  --br: 1rem;
+}
+
+// Responsive fonts
+// @include respond(40em) {
+//   :root {
+//     --fs-500: 1.75rem;
+//     --fs-600: 2.125rem;
+//     --fs-900: 4.25rem;
+//   }
+// }
+
+
+
+// breakpoints

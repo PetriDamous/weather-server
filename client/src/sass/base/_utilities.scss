@@ -1,0 +1,65 @@
+.container {
+    max-width: var(--container-max, 60rem);
+    width: var(--container-w, 90%);
+    margin: 0 auto;
+    @include padding($right-p: 1.5rem, $left-p: 1.5rem);
+}
+
+.flow-content > * + * {
+    @include margins(var(--flow-spacer, 1em));
+}
+
+.split {
+    @include split();
+}
+
+.m-xl-space {
+    margin-top: 5rem !important;
+}
+
+.m-sm-space {
+    margin-top: 1rem !important;
+}
+
+.m-md-space {
+    margin-top: 3rem !important;
+}
+
+.bold {
+    font-weight: var(--fw-700);
+}
+
+.txt-highlight {
+    color: var(--clr-primary-300);
+}
+
+.divider {
+    position: relative;
+
+    &::after {
+        content: "";
+        @include position($position: absolute, $top: var(--divider-top, 1.5em), $left: var(--divider-left, 50%));
+
+        transform: translate(var(--divider-translate, -50%),0);
+        border-bottom: var(--divider-width, 2.5px) var(--divider-style, solid) var(--divider-color, --clr-primary-400);
+        width: var(--divider-length, 3.5em);
+    }
+}
+
+.open-modal {
+    transform: scale(1) !important;    
+}
+
+.theme-danger {    
+    color: var(--txt-danger);
+    background-color: var(--bg-danger);
+    border: 2px solid var(--brd-danger);
+    border-radius: var(--br);
+}
+
+.theme-success {    
+    color: var(--txt-success);
+    background-color: var(--bg-success);
+    border: 2px solid var(--brd-success);
+    border-radius: var(--br);
+}

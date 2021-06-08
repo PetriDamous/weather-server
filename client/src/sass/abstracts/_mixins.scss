@@ -1,0 +1,176 @@
+// Media Query mixin
+@mixin respond($breakpoint) {
+    @media (min-width: $breakpoint) {@content}
+};
+
+// Line-height
+@mixin line-height ($line-h: null) {
+    line-height: $line-h;
+}
+
+// Letter-spacing
+@mixin letter-spacing ($letter-s: null) {
+    letter-spacing: $letter-s;
+}
+
+// Font
+@mixin font (
+    $font-st: null,
+    $font-v: null,
+    $font-w: null, 
+    $font-sz: null,
+    $line-h: null,
+    $font-f: null,
+    $font-sy: null,
+) {
+    @if $font-sy != null {
+        font: $font-sy;
+    } @else if ($font-sz == null) or ($font-f == null) {
+        font-style: $font-st;
+        font-variant: $font-v;
+        font-weight: $font-w;
+        font-size: $font-sz;
+        line-height: $line-h;
+        font-family: $font-f;
+    } @else {
+
+        // Fix null return value issue
+        @if ($line-h != null) and ($font-v == small-caps) or ($font-v == normal) {
+            font: $font-st $font-v $font-w $font-sz unquote(#{$font-sz}/#{$line-h}) $font-f;            
+        } @else if ($line-h != null) {
+            font: $font-st $font-w unquote(#{$font-sz}/#{$line-h}) $font-f;
+            font-variant: $font-v;
+        } @else {
+            font: $font-st $font-w $font-sz $font-f;
+            font-variant: $font-v; 
+        }
+        
+    }
+}
+
+// Padding
+@mixin padding (
+    $top-p: null,
+    $right-p: null,
+    $bottom-p: null,
+    $left-p: null,
+) {
+    @if ($top-p == null) or ($right-p == null) or ($bottom-p == null) or ($left-p == null) {
+        padding-top: $top-p;
+        padding-right: $right-p;
+        padding-bottom: $bottom-p;
+        padding-left: $left-p;
+    } @else if ($top-p == $bottom-p) and ($top-p == $right-p) and ($top-p == $left-p) {
+        padding: $top-p;        
+    } @else if ($top-p == $bottom-p) and ($right-p == $left-p) {
+        padding: $top-p $left-p;        
+    } @else if ($top-p != $bottom-p) and ($right-p == $left-p) {
+        padding: $top-p $right-p $bottom-p;      
+    } @else {
+        padding: $top-p $right-p $bottom-p $left-p;
+    }    
+}
+
+// Margins
+@mixin margins (
+    $top-m: null,
+    $right-m: null,
+    $bottom-m: null,
+    $left-m: null,
+) {
+    @if ($top-m == null) or ($right-m == null) or ($bottom-m == null) or ($left-m == null) {
+        margin-top: $top-m;
+        margin-right: $right-m;
+        margin-bottom: $bottom-m;
+        margin-left: $left-m;
+    } @else if ($top-m == $bottom-m) and ($top-m == $right-m) and ($top-m == $left-m) {
+        margin: $top-m;        
+    } @else if ($top-m == $bottom-m) and ($right-m == $left-m) {
+        margin: $top-m $left-m;        
+    } @else if ($top-m != $bottom-m) and ($right-m == $left-m) {
+        margin: $top-m $right-m $bottom-m;      
+    } @else {
+        margin: $top-m $right-m $bottom-m $left-m;
+    }
+}
+
+// position
+@mixin position (
+    $position: static,
+    $top: null,
+    $bottom: null,
+    $left: null,
+    $right: null
+) {
+    position: $position;
+    top: $top;
+    bottom: $bottom;
+    left: $left;
+    right: $right;
+}
+
+// split for flex box even columns
+@mixin split (
+    $gap: null,
+    $top-space: 4rem,
+    $left-space: 2.5rem,
+    $break-p: 40em 
+) {
+    display: flex;
+    flex-direction: column;
+
+    @if ($gap != null) {
+        gap: $gap;
+    } @else {
+
+        & > * + * {
+            @include margins($top-space, 0, 0, 0);
+        }
+    }
+
+    & > * {
+        flex-basis: 100%;
+    }
+
+    @include respond($break-p) {
+        flex-direction: row;
+
+        @if ($gap == null) {
+            & > * + * {
+                @include margins(0, 0, 0, $left-space);
+            }
+        }
+    }
+}
+
+// Creates pseudo bottom border element
+@mixin divider (
+    $position: center,
+    $top-position: 1.5em,
+    $border-width: 2.5px,
+    $border-style: solid,
+    $border-color: inherit,
+    $border-length: 3.5em,
+
+) {
+    position: relative;
+
+    &::after {
+        content: "";
+        border-bottom: $border-width $border-style $border-color;
+        width: $border-length;
+
+        @debug $position;
+
+        @if ($position == left) {
+            @include position($position: absolute, $top: 1.5em, $left: 0);
+            transform: translate(0,0);
+        } @else if ($position == center) {            
+            @include position($position: absolute, $top: 1.5em, $left: 50%);
+            transform: translate(-50%,0);            
+        } @else if ($position == right) {
+            @include position($position: absolute, $top: 1.5em, $left: 100%);
+            transform: translate(-100%,0);
+        }
+    }
+}
