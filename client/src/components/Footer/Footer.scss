@@ -5,4 +5,17 @@
   align-self: center;
   border-top: 1px solid black;
   padding: 1.5rem 0.5rem;
+
+  @media (min-width: 50em) {
+    & .split {
+      align-items: center;
+    }
+  }
+
+  a {
+    max-width: 18rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
