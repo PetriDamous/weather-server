@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./WeatherForm.scss";
+
 export default function WeatherForm({
   submit,
   searchInput,

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./WeatherRecent.scss";
+
 export default function WeatherRecent({ recentWeatherData }) {
   return (
     <section className="weather-info weather-container flow-content">

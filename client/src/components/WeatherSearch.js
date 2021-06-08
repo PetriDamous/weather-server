@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import WeatherForm from "./WeatherForm";
-import WeatherRecent from "./WeatherRecent";
-import PlaceHolder from "./PlaceHolder";
+import WeatherForm from "./WeatherForm/WeatherForm";
+import WeatherRecent from "./WeatherRecent/WeatherRecent";
+import PlaceHolder from "./PlaceHolder/PlaceHolder";
 
 import { isObjEmpty } from "../utility/utility";
 
