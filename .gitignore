@@ -2,3 +2,7 @@ node_modules
 
 secret.js
 
+env
+
+.env
+

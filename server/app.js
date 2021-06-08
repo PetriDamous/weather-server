@@ -1,4 +1,5 @@
 // Node modules
+require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
@@ -11,7 +12,7 @@ const helpRouter = require("./routers/help-router");
 // Creates instance of express
 const app = express();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 // Define paths for Express config
 const publicPath = path.join(__dirname, "../public");
@@ -39,5 +40,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("Server is running");
+  console.log(`Server is running on port ${PORT}`);
 });
